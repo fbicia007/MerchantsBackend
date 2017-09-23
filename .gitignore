@@ -42,3 +42,15 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+composer.json
+composer.lock
+README.md
+web/.htaccess
+web/app.php
+web/app_dev.php
+web/apple-touch-icon.png
+web/config.php
+web/favicon.ico
+web/robots.txt
+var
+vendor

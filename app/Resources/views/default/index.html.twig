@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ parent() }}
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1>{{ shop.shopName }} - {{ shop.suffix }}</h1>
+            <p>Innomars Backend Syetem, you can from here input your Infos.</p>
+            <p><a class="btn btn-primary btn-lg" href="create">Editor</a></p>
+        </div>
+
+        <div class="col-md-3">
+            <h3>Address:</h3>
+            <p>{{ shop.address }}</p>
+            <h3>Tel:</h3>
+            <p>{{ shop.telefon }}</p>
+            <h3>Beschreibung:</h3>
+            <p>{{ shop.overview }}</p>
+            <h3>Address:</h3>
+            <p>{{ shop.address }}</p>
+            <h3>Type:</h3>
+            <p>{{ shop.shopType }}</p>
+            <h3>Suffix:</h3>
+            <p>{{ shop.suffix }}</p>
+
+        </div>
+        <div class="col-md-9">
+            <h3>Brands:</h3>
+            <div class="list-group">
+                {% for brand in shop.brand %}
+                    {%  if brand is defined and brand is not null %}
+                        <h4 class="list-group-item-heading">{{ loop.index }} : </h4>
+                        <p class="list-group-item-text">{{ brand }}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <h3>Opening Hours:</h3>
+            <div class="list-group">
+                {% for open in shop.openingHours %}
+                    {%  if open is defined and open is not null %}
+                        <h4 class="list-group-item-heading">{{ loop.index }} : {{ open }}</h4>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <h3>Payments:</h3>
+            <div class="list-group">
+                {% for pay in shop.payment %}
+                    {%  if pay is defined and pay is not null %}
+                        <img src="{{ asset('images/24 Payment Method Vector Icons/Dark Color/' ~ loop.index ~ '.png') }}"/>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

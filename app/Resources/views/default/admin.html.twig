@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ parent() }}
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Shop Name</th>
+                <th>Email</th>
+                <th>Tel</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for shop in shops %}
+                <tr>
+                    <th scope="row">{{ shop.id }}</th>
+                    <td>{{ shop.shopName }}</td>
+                    <td>{{ shop.shopEmail }}</td>
+                    <td>{{ shop.telefon }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+{% endblock %}
