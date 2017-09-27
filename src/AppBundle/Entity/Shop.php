@@ -87,7 +87,7 @@ class Shop
     /**
      * @var string
      *
-     * @ORM\Column(name="Country", type="string", length=255)
+     * @ORM\Column(name="country", type="string", length=255)
      */
     private $country;
 
@@ -122,9 +122,9 @@ class Shop
     /**
      * @var bool
      *
-     * @ORM\Column(name="tax_refund", type="boolean")
+     * @ORM\Column(name="tex_refund", type="boolean")
      */
-    private $taxRefund;
+    private $texRefund;
 
     /**
      * @var array
@@ -171,7 +171,7 @@ class Shop
     /**
      * @var array
      *
-     * @ORM\Column(name="opentime", type="array")
+     * @ORM\Column(name="opentime", type="json_array")
      */
     private $opentime;
 
@@ -181,6 +181,13 @@ class Shop
      * @ORM\Column(name="coupon_code", type="string", length=255)
      */
     private $couponCode;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="brands", type="json_array")
+     */
+    private $brands;
 
 
     /**
@@ -530,27 +537,27 @@ class Shop
     }
 
     /**
-     * Set taxRefund
+     * Set texRefund
      *
-     * @param boolean $taxRefund
+     * @param boolean $texRefund
      *
      * @return Shop
      */
-    public function setTaxRefund($taxRefund)
+    public function setTexRefund($texRefund)
     {
-        $this->taxRefund = $taxRefund;
+        $this->texRefund = $texRefund;
 
         return $this;
     }
 
     /**
-     * Get taxRefund
+     * Get texRefund
      *
      * @return bool
      */
-    public function getTaxRefund()
+    public function getTexRefund()
     {
-        return $this->taxRefund;
+        return $this->texRefund;
     }
 
     /**
@@ -743,6 +750,30 @@ class Shop
     public function getCouponCode()
     {
         return $this->couponCode;
+    }
+
+    /**
+     * Set brands
+     *
+     * @param array $brands
+     *
+     * @return Shop
+     */
+    public function setBrands($brands)
+    {
+        $this->brands = $brands;
+
+        return $this;
+    }
+
+    /**
+     * Get brands
+     *
+     * @return array
+     */
+    public function getBrands()
+    {
+        return $this->brands;
     }
 }
 

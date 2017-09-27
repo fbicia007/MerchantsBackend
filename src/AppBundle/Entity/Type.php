@@ -24,7 +24,7 @@ class Type
     /**
      * @var string
      *
-     * @ORM\Column(name="type_name", type="string", length=255)
+     * @ORM\Column(name="type_name", type="string", length=20)
      */
     private $typeName;
 
@@ -34,6 +34,13 @@ class Type
      * @ORM\Column(name="type_cnname", type="string", length=255)
      */
     private $typeCnname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type_dename", type="string", length=255)
+     */
+    private $typeDename;
 
 
     /**
@@ -92,6 +99,30 @@ class Type
     public function getTypeCnname()
     {
         return $this->typeCnname;
+    }
+
+    /**
+     * Set typeDename
+     *
+     * @param string $typeDename
+     *
+     * @return Type
+     */
+    public function setTypeDename($typeDename)
+    {
+        $this->typeDename = $typeDename;
+
+        return $this;
+    }
+
+    /**
+     * Get typeDename
+     *
+     * @return string
+     */
+    public function getTypeDename()
+    {
+        return $this->typeDename;
     }
 }
 
