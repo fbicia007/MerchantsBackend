@@ -22,118 +22,166 @@ class Shop
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="company_name", type="string", length=255)
+     */
+    private $companyName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="store_name", type="string", length=255)
+     */
+    private $storeName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sm_title", type="string", length=20)
+     */
+    private $smTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sm_firstname", type="string", length=255)
+     */
+    private $smFirstname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sm_lastname", type="string", length=255)
+     */
+    private $smLastname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=255)
+     */
+    private $street;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street_number", type="string", length=255)
+     */
+    private $streetNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zip", type="string", length=255)
+     */
+    private $zip;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255)
+     */
+    private $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Country", type="string", length=255)
+     */
+    private $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tel", type="string", length=255)
+     */
+    private $tel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="homepage", type="string", length=255)
+     */
+    private $homepage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fax", type="string", length=255)
+     */
+    private $fax;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="tax_refund", type="boolean")
+     */
+    private $taxRefund;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="payment", type="array")
+     */
+    private $payment;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="language", type="array")
+     */
+    private $language;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="thumb", type="string", length=255)
+     */
+    private $thumb;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="pictures", type="array")
+     */
+    private $pictures;
+
+    /**
      * @var int
      *
-     * @ORM\Column(name="userId", type="integer")
+     * @ORM\Column(name="type", type="integer")
      */
-    private $userId;
+    private $type;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="shopName", type="string", length=255)
+     * @ORM\Column(name="suffix", type="integer")
      */
-    private $shopName = '';
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shopEmail", type="string", length=255)
-     */
-    private $shopEmail = '';
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="telefon", type="string", length=255)
-     */
-    private $telefon = '';
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="address", type="string", length=255)
-     */
-    private $address = '';
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="web", type="string", length=255)
-     */
-    private $web = '';
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="overview", type="string", length=255)
-     */
-    private $overview = '';
+    private $suffix;
 
     /**
      * @var array
      *
-     * @ORM\Column(name="payment", type="json_array")
+     * @ORM\Column(name="opentime", type="array")
      */
-    private $payment = array('' => '');
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="openingHours", type="json_array")
-     */
-    private $openingHours = array('','','','','','','');
+    private $opentime;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="shopType", type="string", length=255)
+     * @ORM\Column(name="coupon_code", type="string", length=255)
      */
-    private $shopType = '';
+    private $couponCode;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="suffix", type="string", length=255)
-     */
-    private $suffix = '';
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="logo", type="string", length=255)
-     */
-    private $logo = '';
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mark", type="string", length=255)
-     */
-    private $mark = '';
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="brand", type="json_array")
-     */
-    private $brand = array('','','','','','','','','','','','');
-
-    /**
-     * @return string
-     */
-    public function getWeb()
-    {
-        return $this->web;
-    }
-
-    /**
-     * @param string $web
-     */
-    public function setWeb($web)
-    {
-        $this->web = $web;
-    }
 
     /**
      * Get id
@@ -146,147 +194,363 @@ class Shop
     }
 
     /**
-     * Set userId
+     * Set companyName
      *
-     * @param integer $userId
+     * @param string $companyName
      *
      * @return Shop
      */
-    public function setUserId($userId)
+    public function setCompanyName($companyName)
     {
-        $this->userId = $userId;
+        $this->companyName = $companyName;
 
         return $this;
     }
 
     /**
-     * Get userId
-     *
-     * @return int
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * Set shopName
-     *
-     * @param string $shopName
-     *
-     * @return Shop
-     */
-    public function setShopName($shopName)
-    {
-        $this->shopName = $shopName;
-
-        return $this;
-    }
-
-    /**
-     * Get shopName
+     * Get companyName
      *
      * @return string
      */
-    public function getShopName()
+    public function getCompanyName()
     {
-        return $this->shopName;
+        return $this->companyName;
     }
 
     /**
-     * Set shopEmail
+     * Set storeName
      *
-     * @param string $shopEmail
+     * @param string $storeName
      *
      * @return Shop
      */
-    public function setShopEmail($shopEmail)
+    public function setStoreName($storeName)
     {
-        $this->shopEmail = $shopEmail;
+        $this->storeName = $storeName;
 
         return $this;
     }
 
     /**
-     * Get shopEmail
+     * Get storeName
      *
      * @return string
      */
-    public function getShopEmail()
+    public function getStoreName()
     {
-        return $this->shopEmail;
+        return $this->storeName;
     }
 
     /**
-     * Set telefon
+     * Set smTitle
      *
-     * @param string $telefon
+     * @param string $smTitle
      *
      * @return Shop
      */
-    public function setTelefon($telefon)
+    public function setSmTitle($smTitle)
     {
-        $this->telefon = $telefon;
+        $this->smTitle = $smTitle;
 
         return $this;
     }
 
     /**
-     * Get telefon
+     * Get smTitle
      *
      * @return string
      */
-    public function getTelefon()
+    public function getSmTitle()
     {
-        return $this->telefon;
+        return $this->smTitle;
     }
 
     /**
-     * Set address
+     * Set smFirstname
      *
-     * @param string $address
+     * @param string $smFirstname
      *
      * @return Shop
      */
-    public function setAddress($address)
+    public function setSmFirstname($smFirstname)
     {
-        $this->address = $address;
+        $this->smFirstname = $smFirstname;
 
         return $this;
     }
 
     /**
-     * Get address
+     * Get smFirstname
      *
      * @return string
      */
-    public function getAddress()
+    public function getSmFirstname()
     {
-        return $this->address;
+        return $this->smFirstname;
     }
 
     /**
-     * Set overview
+     * Set smLastname
      *
-     * @param string $overview
+     * @param string $smLastname
      *
      * @return Shop
      */
-    public function setOverview($overview)
+    public function setSmLastname($smLastname)
     {
-        $this->overview = $overview;
+        $this->smLastname = $smLastname;
 
         return $this;
     }
 
     /**
-     * Get overview
+     * Get smLastname
      *
      * @return string
      */
-    public function getOverview()
+    public function getSmLastname()
     {
-        return $this->overview;
+        return $this->smLastname;
+    }
+
+    /**
+     * Set street
+     *
+     * @param string $street
+     *
+     * @return Shop
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+
+        return $this;
+    }
+
+    /**
+     * Get street
+     *
+     * @return string
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * Set streetNumber
+     *
+     * @param string $streetNumber
+     *
+     * @return Shop
+     */
+    public function setStreetNumber($streetNumber)
+    {
+        $this->streetNumber = $streetNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get streetNumber
+     *
+     * @return string
+     */
+    public function getStreetNumber()
+    {
+        return $this->streetNumber;
+    }
+
+    /**
+     * Set zip
+     *
+     * @param string $zip
+     *
+     * @return Shop
+     */
+    public function setZip($zip)
+    {
+        $this->zip = $zip;
+
+        return $this;
+    }
+
+    /**
+     * Get zip
+     *
+     * @return string
+     */
+    public function getZip()
+    {
+        return $this->zip;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return Shop
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return Shop
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set tel
+     *
+     * @param string $tel
+     *
+     * @return Shop
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    /**
+     * Get tel
+     *
+     * @return string
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Shop
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set homepage
+     *
+     * @param string $homepage
+     *
+     * @return Shop
+     */
+    public function setHomepage($homepage)
+    {
+        $this->homepage = $homepage;
+
+        return $this;
+    }
+
+    /**
+     * Get homepage
+     *
+     * @return string
+     */
+    public function getHomepage()
+    {
+        return $this->homepage;
+    }
+
+    /**
+     * Set fax
+     *
+     * @param string $fax
+     *
+     * @return Shop
+     */
+    public function setFax($fax)
+    {
+        $this->fax = $fax;
+
+        return $this;
+    }
+
+    /**
+     * Get fax
+     *
+     * @return string
+     */
+    public function getFax()
+    {
+        return $this->fax;
+    }
+
+    /**
+     * Set taxRefund
+     *
+     * @param boolean $taxRefund
+     *
+     * @return Shop
+     */
+    public function setTaxRefund($taxRefund)
+    {
+        $this->taxRefund = $taxRefund;
+
+        return $this;
+    }
+
+    /**
+     * Get taxRefund
+     *
+     * @return bool
+     */
+    public function getTaxRefund()
+    {
+        return $this->taxRefund;
     }
 
     /**
@@ -314,57 +578,105 @@ class Shop
     }
 
     /**
-     * Set openingHours
+     * Set language
      *
-     * @param array $openingHours
+     * @param array $language
      *
      * @return Shop
      */
-    public function setOpeningHours($openingHours)
+    public function setLanguage($language)
     {
-        $this->openingHours = $openingHours;
+        $this->language = $language;
 
         return $this;
     }
 
     /**
-     * Get openingHours
+     * Get language
      *
      * @return array
      */
-    public function getOpeningHours()
+    public function getLanguage()
     {
-        return $this->openingHours;
+        return $this->language;
     }
 
     /**
-     * Set shopType
+     * Set thumb
      *
-     * @param string $shopType
+     * @param string $thumb
      *
      * @return Shop
      */
-    public function setShopType($shopType)
+    public function setThumb($thumb)
     {
-        $this->shopType = $shopType;
+        $this->thumb = $thumb;
 
         return $this;
     }
 
     /**
-     * Get shopType
+     * Get thumb
      *
      * @return string
      */
-    public function getShopType()
+    public function getThumb()
     {
-        return $this->shopType;
+        return $this->thumb;
+    }
+
+    /**
+     * Set pictures
+     *
+     * @param array $pictures
+     *
+     * @return Shop
+     */
+    public function setPictures($pictures)
+    {
+        $this->pictures = $pictures;
+
+        return $this;
+    }
+
+    /**
+     * Get pictures
+     *
+     * @return array
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * Set type
+     *
+     * @param integer $type
+     *
+     * @return Shop
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
      * Set suffix
      *
-     * @param string $suffix
+     * @param integer $suffix
      *
      * @return Shop
      */
@@ -378,7 +690,7 @@ class Shop
     /**
      * Get suffix
      *
-     * @return string
+     * @return int
      */
     public function getSuffix()
     {
@@ -386,75 +698,51 @@ class Shop
     }
 
     /**
-     * Set logo
+     * Set opentime
      *
-     * @param string $logo
+     * @param array $opentime
      *
      * @return Shop
      */
-    public function setLogo($logo)
+    public function setOpentime($opentime)
     {
-        $this->logo = $logo;
+        $this->opentime = $opentime;
 
         return $this;
     }
 
     /**
-     * Get logo
-     *
-     * @return string
-     */
-    public function getLogo()
-    {
-        return $this->logo;
-    }
-
-    /**
-     * Set mark
-     *
-     * @param string $mark
-     *
-     * @return Shop
-     */
-    public function setMark($mark)
-    {
-        $this->mark = $mark;
-
-        return $this;
-    }
-
-    /**
-     * Get mark
-     *
-     * @return string
-     */
-    public function getMark()
-    {
-        return $this->mark;
-    }
-
-    /**
-     * Set brand
-     *
-     * @param array $brand
-     *
-     * @return Shop
-     */
-    public function setBrand($brand)
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
-
-    /**
-     * Get brand
+     * Get opentime
      *
      * @return array
      */
-    public function getBrand()
+    public function getOpentime()
     {
-        return $this->brand;
+        return $this->opentime;
+    }
+
+    /**
+     * Set couponCode
+     *
+     * @param string $couponCode
+     *
+     * @return Shop
+     */
+    public function setCouponCode($couponCode)
+    {
+        $this->couponCode = $couponCode;
+
+        return $this;
+    }
+
+    /**
+     * Get couponCode
+     *
+     * @return string
+     */
+    public function getCouponCode()
+    {
+        return $this->couponCode;
     }
 }
 
