@@ -24,37 +24,37 @@ class Shop
     /**
      * @var string
      *
-     * @ORM\Column(name="company_name", type="string", length=255)
+     * @ORM\Column(name="company", type="string", length=255)
      */
-    private $companyName;
+    private $company;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="store_name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $storeName;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sm_title", type="string", length=20)
+     * @ORM\Column(name="manager_title", type="string", length=20)
      */
-    private $smTitle;
+    private $managerTitle;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sm_firstname", type="string", length=255)
+     * @ORM\Column(name="manager_firstname", type="string", length=255)
      */
-    private $smFirstname;
+    private $managerFirstname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="sm_lastname", type="string", length=255)
+     * @ORM\Column(name="manager_lastname", type="string", length=255)
      */
-    private $smLastname;
+    private $managerLastname;
 
     /**
      * @var string
@@ -108,9 +108,9 @@ class Shop
     /**
      * @var string
      *
-     * @ORM\Column(name="homepage", type="string", length=255)
+     * @ORM\Column(name="web", type="string", length=255)
      */
-    private $homepage;
+    private $web;
 
     /**
      * @var string
@@ -122,9 +122,9 @@ class Shop
     /**
      * @var bool
      *
-     * @ORM\Column(name="tex_refund", type="boolean")
+     * @ORM\Column(name="tax_refund", type="boolean")
      */
-    private $texRefund;
+    private $taxRefund;
 
     /**
      * @var array
@@ -143,9 +143,9 @@ class Shop
     /**
      * @var string
      *
-     * @ORM\Column(name="thumb", type="string", length=255)
+     * @ORM\Column(name="thumbnail", type="string", length=255)
      */
-    private $thumb;
+    private $thumbnail;
 
     /**
      * @var array
@@ -155,25 +155,30 @@ class Shop
     private $pictures;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="type", type="integer")
+     * @ORM\ManyToOne(targetEntity="Type", inversedBy="shops")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
     private $type;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="suffix", type="integer")
+     * @ORM\ManyToOne(targetEntity="Suffix", inversedBy="shops")
+     * @ORM\JoinColumn(name="suffix_id", referencedColumnName="id")
      */
     private $suffix;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="user", type="integer")
+     */
+    private $user;
+
+    /**
      * @var array
      *
-     * @ORM\Column(name="opentime", type="json_array")
+     * @ORM\Column(name="opening_hours", type="json_array")
      */
-    private $opentime;
+    private $openingHours;
 
     /**
      * @var string
@@ -201,123 +206,123 @@ class Shop
     }
 
     /**
-     * Set companyName
+     * Set company
      *
-     * @param string $companyName
+     * @param string $company
      *
      * @return Shop
      */
-    public function setCompanyName($companyName)
+    public function setCompany($company)
     {
-        $this->companyName = $companyName;
+        $this->company = $company;
 
         return $this;
     }
 
     /**
-     * Get companyName
+     * Get company
      *
      * @return string
      */
-    public function getCompanyName()
+    public function getCompany()
     {
-        return $this->companyName;
+        return $this->company;
     }
 
     /**
-     * Set storeName
+     * Set name
      *
-     * @param string $storeName
+     * @param string $name
      *
      * @return Shop
      */
-    public function setStoreName($storeName)
+    public function setName($name)
     {
-        $this->storeName = $storeName;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get storeName
+     * Get name
      *
      * @return string
      */
-    public function getStoreName()
+    public function getName()
     {
-        return $this->storeName;
+        return $this->name;
     }
 
     /**
-     * Set smTitle
+     * Set managerTitle
      *
-     * @param string $smTitle
+     * @param string $managerTitle
      *
      * @return Shop
      */
-    public function setSmTitle($smTitle)
+    public function setManagerTitle($managerTitle)
     {
-        $this->smTitle = $smTitle;
+        $this->managerTitle = $managerTitle;
 
         return $this;
     }
 
     /**
-     * Get smTitle
+     * Get managerTitle
      *
      * @return string
      */
-    public function getSmTitle()
+    public function getManagerTitle()
     {
-        return $this->smTitle;
+        return $this->managerTitle;
     }
 
     /**
-     * Set smFirstname
+     * Set managerFirstname
      *
-     * @param string $smFirstname
+     * @param string $managerFirstname
      *
      * @return Shop
      */
-    public function setSmFirstname($smFirstname)
+    public function setManagerFirstname($managerFirstname)
     {
-        $this->smFirstname = $smFirstname;
+        $this->managerFirstname = $managerFirstname;
 
         return $this;
     }
 
     /**
-     * Get smFirstname
+     * Get managerFirstname
      *
      * @return string
      */
-    public function getSmFirstname()
+    public function getManagerFirstname()
     {
-        return $this->smFirstname;
+        return $this->managerFirstname;
     }
 
     /**
-     * Set smLastname
+     * Set managerLastname
      *
-     * @param string $smLastname
+     * @param string $managerLastname
      *
      * @return Shop
      */
-    public function setSmLastname($smLastname)
+    public function setManagerLastname($managerLastname)
     {
-        $this->smLastname = $smLastname;
+        $this->managerLastname = $managerLastname;
 
         return $this;
     }
 
     /**
-     * Get smLastname
+     * Get managerLastname
      *
      * @return string
      */
-    public function getSmLastname()
+    public function getManagerLastname()
     {
-        return $this->smLastname;
+        return $this->managerLastname;
     }
 
     /**
@@ -489,27 +494,27 @@ class Shop
     }
 
     /**
-     * Set homepage
+     * Set web
      *
-     * @param string $homepage
+     * @param string $web
      *
      * @return Shop
      */
-    public function setHomepage($homepage)
+    public function setWeb($web)
     {
-        $this->homepage = $homepage;
+        $this->web = $web;
 
         return $this;
     }
 
     /**
-     * Get homepage
+     * Get web
      *
      * @return string
      */
-    public function getHomepage()
+    public function getWeb()
     {
-        return $this->homepage;
+        return $this->web;
     }
 
     /**
@@ -537,27 +542,27 @@ class Shop
     }
 
     /**
-     * Set texRefund
+     * Set taxRefund
      *
-     * @param boolean $texRefund
+     * @param boolean $taxRefund
      *
      * @return Shop
      */
-    public function setTexRefund($texRefund)
+    public function setTaxRefund($taxRefund)
     {
-        $this->texRefund = $texRefund;
+        $this->taxRefund = $taxRefund;
 
         return $this;
     }
 
     /**
-     * Get texRefund
+     * Get taxRefund
      *
      * @return bool
      */
-    public function getTexRefund()
+    public function getTaxRefund()
     {
-        return $this->texRefund;
+        return $this->taxRefund;
     }
 
     /**
@@ -609,27 +614,27 @@ class Shop
     }
 
     /**
-     * Set thumb
+     * Set thumbnail
      *
-     * @param string $thumb
+     * @param string $thumbnail
      *
      * @return Shop
      */
-    public function setThumb($thumb)
+    public function setThumbnail($thumbnail)
     {
-        $this->thumb = $thumb;
+        $this->thumbnail = $thumbnail;
 
         return $this;
     }
 
     /**
-     * Get thumb
+     * Get thumbnail
      *
      * @return string
      */
-    public function getThumb()
+    public function getThumbnail()
     {
-        return $this->thumb;
+        return $this->thumbnail;
     }
 
     /**
@@ -657,30 +662,6 @@ class Shop
     }
 
     /**
-     * Set type
-     *
-     * @param integer $type
-     *
-     * @return Shop
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return int
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
      * Set suffix
      *
      * @param integer $suffix
@@ -705,27 +686,27 @@ class Shop
     }
 
     /**
-     * Set opentime
+     * Set openingHours
      *
-     * @param array $opentime
+     * @param array $openingHours
      *
      * @return Shop
      */
-    public function setOpentime($opentime)
+    public function setOpeningHours($openingHours)
     {
-        $this->opentime = $opentime;
+        $this->openingHours = $openingHours;
 
         return $this;
     }
 
     /**
-     * Get opentime
+     * Get openingHours
      *
      * @return array
      */
-    public function getOpentime()
+    public function getOpeningHours()
     {
-        return $this->opentime;
+        return $this->openingHours;
     }
 
     /**
@@ -775,5 +756,52 @@ class Shop
     {
         return $this->brands;
     }
-}
 
+    /**
+     * Set type
+     *
+     * @param \AppBundle\Entity\Type $type
+     *
+     * @return Shop
+     */
+    public function setType(\AppBundle\Entity\Type $type = null)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \AppBundle\Entity\Type
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set user
+     *
+     * @param integer $user
+     *
+     * @return Shop
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return integer
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}

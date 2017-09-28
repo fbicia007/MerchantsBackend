@@ -24,23 +24,23 @@ class City
     /**
      * @var string
      *
-     * @ORM\Column(name="city_name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $cityName;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city_cnname", type="string", length=255)
+     * @ORM\Column(name="name_cn", type="string", length=255)
      */
-    private $cityCnname;
+    private $nameCn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city_dename", type="string", length=255)
+     * @ORM\Column(name="name_de", type="string", length=255)
      */
-    private $cityDename;
+    private $nameDe;
 
 
     /**
@@ -54,75 +54,74 @@ class City
     }
 
     /**
-     * Set cityName
+     * Set name
      *
-     * @param string $cityName
+     * @param string $name
      *
      * @return City
      */
-    public function setCityName($cityName)
+    public function setName($name)
     {
-        $this->cityName = $cityName;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get cityName
+     * Get name
      *
      * @return string
      */
-    public function getCityName()
+    public function getName()
     {
-        return $this->cityName;
+        return $this->name;
     }
 
     /**
-     * Set cityCnname
+     * Set nameCn
      *
-     * @param string $cityCnname
+     * @param string $nameCn
      *
      * @return City
      */
-    public function setCityCnname($cityCnname)
+    public function setNameCn($nameCn)
     {
-        $this->cityCnname = $cityCnname;
+        $this->nameCn = $nameCn;
 
         return $this;
     }
 
     /**
-     * Get cityCnname
+     * Get nameCn
      *
      * @return string
      */
-    public function getCityCnname()
+    public function getNameCn()
     {
-        return $this->cityCnname;
+        return $this->nameCn;
     }
 
     /**
-     * Set cityDename
+     * Set nameDe
      *
-     * @param string $cityDename
+     * @param string $nameDe
      *
      * @return City
      */
-    public function setCityDename($cityDename)
+    public function setNameDe($nameDe)
     {
-        $this->cityDename = $cityDename;
+        $this->nameDe = $nameDe;
 
         return $this;
     }
 
     /**
-     * Get cityDename
+     * Get nameDe
      *
      * @return string
      */
-    public function getCityDename()
+    public function getNameDe()
     {
-        return $this->cityDename;
+        return $this->nameDe;
     }
 }
-

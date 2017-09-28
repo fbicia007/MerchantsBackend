@@ -24,23 +24,23 @@ class Country
     /**
      * @var string
      *
-     * @ORM\Column(name="country_name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $countryName;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="country_cnname", type="string", length=255)
+     * @ORM\Column(name="name_cn", type="string", length=255)
      */
-    private $countryCnname;
+    private $nameCn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="country_dename", type="string", length=255)
+     * @ORM\Column(name="name_de", type="string", length=255)
      */
-    private $countryDename;
+    private $nameDe;
 
 
     /**
@@ -54,75 +54,74 @@ class Country
     }
 
     /**
-     * Set countryName
+     * Set name
      *
-     * @param string $countryName
+     * @param string $name
      *
      * @return Country
      */
-    public function setCountryName($countryName)
+    public function setName($name)
     {
-        $this->countryName = $countryName;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get countryName
+     * Get name
      *
      * @return string
      */
-    public function getCountryName()
+    public function getName()
     {
-        return $this->countryName;
+        return $this->name;
     }
 
     /**
-     * Set countryCnname
+     * Set nameCn
      *
-     * @param string $countryCnname
+     * @param string $nameCn
      *
      * @return Country
      */
-    public function setCountryCnname($countryCnname)
+    public function setNameCn($nameCn)
     {
-        $this->countryCnname = $countryCnname;
+        $this->nameCn = $nameCn;
 
         return $this;
     }
 
     /**
-     * Get countryCnname
+     * Get nameCn
      *
      * @return string
      */
-    public function getCountryCnname()
+    public function getNameCn()
     {
-        return $this->countryCnname;
+        return $this->nameCn;
     }
 
     /**
-     * Set countryDename
+     * Set nameDe
      *
-     * @param string $countryDename
+     * @param string $nameDe
      *
      * @return Country
      */
-    public function setCountryDename($countryDename)
+    public function setNameDe($nameDe)
     {
-        $this->countryDename = $countryDename;
+        $this->nameDe = $nameDe;
 
         return $this;
     }
 
     /**
-     * Get countryDename
+     * Get nameDe
      *
      * @return string
      */
-    public function getCountryDename()
+    public function getNameDe()
     {
-        return $this->countryDename;
+        return $this->nameDe;
     }
 }
-

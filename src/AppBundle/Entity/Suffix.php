@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Brand
+ * Suffix
  *
- * @ORM\Table(name="brand")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\BrandRepository")
+ * @ORM\Table(name="suffix")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SuffixRepository")
  */
-class Brand
+class Suffix
 {
     /**
      * @var int
@@ -38,9 +38,19 @@ class Brand
     /**
      * @var string
      *
-     * @ORM\Column(name="nickname", type="string", length=255)
+     * @ORM\Column(name="name_de", type="string", length=255)
      */
-    private $nickname;
+    private $nameDe;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Shop", mappedBy="suffix")
+     */
+    private $shops;
+
+    public function __construct()
+    {
+        $this->shops = new ArrayCollection();
+    }
 
 
     /**
@@ -58,7 +68,7 @@ class Brand
      *
      * @param string $name
      *
-     * @return Brand
+     * @return Suffix
      */
     public function setName($name)
     {
@@ -82,7 +92,7 @@ class Brand
      *
      * @param string $nameCn
      *
-     * @return Brand
+     * @return Suffix
      */
     public function setNameCn($nameCn)
     {
@@ -102,26 +112,60 @@ class Brand
     }
 
     /**
-     * Set nickname
+     * Set nameDe
      *
-     * @param string $nickname
+     * @param string $nameDe
      *
-     * @return Brand
+     * @return Suffix
      */
-    public function setNickname($nickname)
+    public function setNameDe($nameDe)
     {
-        $this->nickname = $nickname;
+        $this->nameDe = $nameDe;
 
         return $this;
     }
 
     /**
-     * Get nickname
+     * Get nameDe
      *
      * @return string
      */
-    public function getNickname()
+    public function getNameDe()
     {
-        return $this->nickname;
+        return $this->nameDe;
+    }
+
+    /**
+     * Add shop
+     *
+     * @param \AppBundle\Entity\Shop $shop
+     *
+     * @return Suffix
+     */
+    public function addShop(\AppBundle\Entity\Shop $shop)
+    {
+        $this->shops[] = $shop;
+
+        return $this;
+    }
+
+    /**
+     * Remove shop
+     *
+     * @param \AppBundle\Entity\Shop $shop
+     */
+    public function removeShop(\AppBundle\Entity\Shop $shop)
+    {
+        $this->shops->removeElement($shop);
+    }
+
+    /**
+     * Get shops
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getShops()
+    {
+        return $this->shops;
     }
 }

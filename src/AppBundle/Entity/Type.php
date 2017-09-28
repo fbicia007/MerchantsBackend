@@ -24,23 +24,33 @@ class Type
     /**
      * @var string
      *
-     * @ORM\Column(name="type_name", type="string", length=20)
+     * @ORM\Column(name="name", type="string", length=20)
      */
-    private $typeName;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type_cnname", type="string", length=255)
+     * @ORM\Column(name="name_cn", type="string", length=255)
      */
-    private $typeCnname;
+    private $nameCn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type_dename", type="string", length=255)
+     * @ORM\Column(name="name_de", type="string", length=255)
      */
-    private $typeDename;
+    private $nameDe;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Shop", mappedBy="type")
+     */
+    private $shops;
+
+    public function __construct()
+    {
+        $this->shops = new ArrayCollection();
+    }
 
 
     /**
@@ -54,75 +64,108 @@ class Type
     }
 
     /**
-     * Set typeName
+     * Set name
      *
-     * @param string $typeName
+     * @param string $name
      *
      * @return Type
      */
-    public function setTypeName($typeName)
+    public function setName($name)
     {
-        $this->typeName = $typeName;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get typeName
+     * Get name
      *
      * @return string
      */
-    public function getTypeName()
+    public function getName()
     {
-        return $this->typeName;
+        return $this->name;
     }
 
     /**
-     * Set typeCnname
+     * Set nameCn
      *
-     * @param string $typeCnname
+     * @param string $nameCn
      *
      * @return Type
      */
-    public function setTypeCnname($typeCnname)
+    public function setNameCn($nameCn)
     {
-        $this->typeCnname = $typeCnname;
+        $this->nameCn = $nameCn;
 
         return $this;
     }
 
     /**
-     * Get typeCnname
+     * Get nameCn
      *
      * @return string
      */
-    public function getTypeCnname()
+    public function getNameCn()
     {
-        return $this->typeCnname;
+        return $this->nameCn;
     }
 
     /**
-     * Set typeDename
+     * Set nameDe
      *
-     * @param string $typeDename
+     * @param string $nameDe
      *
      * @return Type
      */
-    public function setTypeDename($typeDename)
+    public function setNameDe($nameDe)
     {
-        $this->typeDename = $typeDename;
+        $this->nameDe = $nameDe;
 
         return $this;
     }
 
     /**
-     * Get typeDename
+     * Get nameDe
      *
      * @return string
      */
-    public function getTypeDename()
+    public function getNameDe()
     {
-        return $this->typeDename;
+        return $this->nameDe;
+    }
+
+    /**
+     * Add shop
+     *
+     * @param \AppBundle\Entity\Shop $shop
+     *
+     * @return Type
+     */
+    public function addShop(\AppBundle\Entity\Shop $shop)
+    {
+        $this->shops[] = $shop;
+
+        return $this;
+    }
+
+    /**
+     * Remove shop
+     *
+     * @param \AppBundle\Entity\Shop $shop
+     */
+    public function removeShop(\AppBundle\Entity\Shop $shop)
+    {
+        $this->shops->removeElement($shop);
+    }
+
+    /**
+     * Get shops
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getShops()
+    {
+        return $this->shops;
     }
 }
-
