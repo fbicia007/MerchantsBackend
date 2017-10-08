@@ -1,0 +1,49 @@
+body { 
+    padding-top: 70px;
+}
+
+.homepage {
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+}
+.footer {
+    padding-top: 100px;
+    width: 100%;
+    bottom: 0;
+}
+
+.h1, h1 {
+    font-size: 60px;
+    color: #ccc;
+
+}
+
+.home-menu {
+    padding-top: 15%;
+    text-align: center;
+}
+
+.home-icons {
+    padding-top: 15%;
+    text-align: center;
+    font-size: large;
+}
+
+.icon {
+    width: 200px;
+}
+a:focus, a:hover {
+    color: #ccc;
+}
+a {
+    color: #ccc;
+}
+.dropdown-menu>li>a {
+    color: #fff;
+}
+.checkbox-inline {
+    margin-top: 2%;
+}
+.checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline {
+    margin-top: 2%;
+}

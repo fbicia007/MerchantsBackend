@@ -24,21 +24,21 @@ class Country
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name_cn", type="string", length=255)
+     * @ORM\Column(name="name_cn", type="string", length=255, unique=true)
      */
     private $nameCn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name_de", type="string", length=255)
+     * @ORM\Column(name="name_de", type="string", length=255, unique=true)
      */
     private $nameDe;
 

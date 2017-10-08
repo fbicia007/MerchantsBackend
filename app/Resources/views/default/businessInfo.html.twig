@@ -1,7 +1,182 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-<h1>Business Information</h1>
+{% block content %}
+
+    {{ parent() }}
+
+    <div class="container">
+
+        <h2>Business Information</h2>
+
+        {{ form_start(myForm) }}
+
+        <div class="col-md-6">
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    {{ form_widget(myForm.company_name) }}
+                    <!--<input type="text" class="form-control" id="companyName" placeholder="Company Name">-->
+                </div>
+
+                <div class="form-group">
+                    <label for="storeName">Store Name</label>
+                    {{ form_widget(myForm.store_name) }}
+                </div>
+
+                <div class="form-group">
+
+                    <label>Store Manager</label>
+                    {{ form_widget(myForm.manager_title) }}
+                    {{ form_widget(myForm.manager_firstname) }}{{ form_widget(myForm.manager_lastname) }}
+                </div>
+
+                <div class="form-group">
+
+                    <label>Contact Details</label>
+                    <br>
+                    {{ form_widget(myForm.street) }}{{ form_widget(myForm.street_number) }}
+                    {{ form_widget(myForm.zip) }}{{ form_widget(myForm.city) }}
+
+                    {{ form_widget(myForm.country) }}
+
+                    <input type="text" style="width:49%; display:inline-block;" class="form-control" id="tel" placeholder="Telephone"><input type="text" style="width:49%; margin: 0 0 2% 2%; display:inline-block;" class="form-control" id="email" placeholder="E-mail" value="{{ email }}">
+                    <input type="text" style="width:49%; display:inline-block;" class="form-control" id="web" placeholder="Homepage"><input type="text" style="width:49%; margin: 0 0 2% 2%; display:inline-block;" class="form-control" id="fax" placeholder="Fax">
+                </div>
+
+                <div class="form-group">
+                    <label>Opening Hours</label>
+                    <br>
+                    <div for="openingHours" style="width:19%; display:inline-block;">Monday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
+                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day1_am" value="08:00">
+                        to
+                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day1_pm" value="20:00">
+                    </div>
+                    <div for="openingHours" style="width:19%; display:inline-block;">Tuesday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
+                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day2_am" value="08:00">
+                        to
+                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day2_pm" value="20:00">
+                    </div>
+                    <div for="openingHours" style="width:19%; display:inline-block;">Wednesday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
+                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day3_am" value="08:00">
+                        to
+                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day3_pm" value="20:00">
+                    </div>
+                    <div for="openingHours" style="width:19%; display:inline-block;">Thursday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
+                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day4_am" value="08:00">
+                        to
+                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day4_pm" value="20:00">
+                    </div>
+                    <div for="openingHours" style="width:19%; display:inline-block;">Friday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
+                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day5_am" value="08:00">
+                        to
+                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day5_pm" value="20:00">
+                    </div>
+                    <div for="openingHours" style="width:19%; display:inline-block;">Saturday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
+                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day6_am" value="08:00">
+                        to
+                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day6_pm" value="20:00">
+                    </div>
+                    <div for="openingHours" style="width:19%; display:inline-block;">Sunday : </div><div style="width:79%; margin: 0 0 0 2%; display:inline-block;">
+                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day7_am" value="08:00">
+                        to
+                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day7_pm" value="20:00">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary pull-right">Save</button>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+
+                    <label>Whether to offer tax refund</label>
+                    <select class="form-control" id="taxRefund">
+                        <option value="" selected hidden>Whether to offer tax refund</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="companyName">Mode of Payment</label>
+                    <div></div>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="visa" value="visa"><img style="width: 30px;" src="img/payment/1.png">
+                    </label>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="master" value="master"><img style="width: 30px;" src="img/payment/2.png">
+                    </label>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="paypal" value="paypal"><img style="width: 30px;" src="img/payment/5.png">
+                    </label>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="americaExpress" value="americaExpress"><img style="width: 30px;" src="img/payment/22.png">
+                    </label>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="jcb" value="jcb"><img style="width: 30px;" src="img/payment/16.png">
+                    </label>
+                    <div></div>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="uniPay" value="uniPay"><img style="width: 30px;" src="img/payment/4.png">
+                    </label>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="maestro" value="maestro"><img style="width: 30px;" src="img/payment/3.png">
+                    </label>
+                </div>
+
+                <div class="form-group" style="margin-top: 15%;">
+                    <label for="storeName">Service Language</label>
+                    <div></div>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="english" value="english"> English
+                    </label>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="chinese" value="chinese"> Chinese
+                    </label>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="russian" value="russian"> Russian
+                    </label>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="japanese" value="japanese"> Japanese
+                    </label>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="koran" value="korean"> Korean
+                    </label>
+                    <div></div>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="thai" value="thai"> Thai
+                    </label>
+                    <label class="checkbox-inline col-md-2">
+                        <input type="checkbox" id="arabic" value="arabic"> Arabic
+                    </label>
+                </div>
+
+                <div class="form-group" style="margin-top: 15%;">
+                    <label>File Upload (Applying to IOS & Android)</label>
+                    <div style="margin-bottom: 2%;">Thumb of Store</div>
+                    <div style="border: 1px solid #ccc!important; height: 141px;">
+                        <input type="file" id="thumb">
+                        <p class="help-block">Your profile picture(jpg/png) must be smaller than 1 MB in file size.</p>
+                    </div>
+
+                    <div style="margin: 2% 0 2% 0;">Five Pictures of Store Interior</div>
+                    <div style="border: 1px solid #ccc!important; height: 141px;">
+                        <input type="file" id="pictures" multiple="multiple">
+                        <p class="help-block">Your profile picture(jpg/png) must be smaller than 1 MB in file size.</p>
+                    </div>
+                </div>
+
+                <a href="/">
+                    <button type="button" class="btn btn-danger" style="margin-top: 36.5%;">Cancel</button>
+                </a>
+
+            </div>
+
+            {{ form_end(myForm) }}
+
+
+    </div><!-- /.container -->
+
 {% endblock %}
 
 {% block stylesheets %}

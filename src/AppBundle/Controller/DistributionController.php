@@ -2,31 +2,25 @@
 /**
  * Created by PhpStorm.
  * User: fbicia
- * Date: 2017/9/26
- * Time: 下午2:32
+ * Date: 2017/10/8
+ * Time: 下午6:29
  */
-
 namespace AppBundle\Controller;
 
-use AppBundle\Form\OpeningType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class AngeboteController extends Controller
+class DistributionController extends Controller
 {
     /**
-     * @Route("/angebote", name="angeboteInfo")
+     * @Route("/distribution", name="distribution")
      */
     public function indexAction(Request $request)
     {
-
-
-        $form = $this->createForm(OpeningType::class);
-
-        return $this->render('default/angeboteInput.html.twig', [
+        // replace this example code with whatever you need
+        return $this->render('default/distribution.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-            'myForm' => $form->createView()
         ]);
     }
 }

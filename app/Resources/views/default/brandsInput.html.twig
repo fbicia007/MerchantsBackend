@@ -2,6 +2,14 @@
 
 {% block body %}
     <h1>Brands Information</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.nameCn) }}
+        {{ form_row(form.nickname) }}
+        <button type="submit" class="but btn-primary">Save</button>
+    {{ form_end(form) }}
+
 {% endblock %}
 
 {% block stylesheets %}
