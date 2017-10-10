@@ -13,13 +13,13 @@
         <div class="col-md-6">
                 <div class="form-group">
                     <label for="companyName">Company Name</label>
-                    {{ form_widget(myForm.company_name) }}
+                    {{ form_widget(myForm.company) }}
                     <!--<input type="text" class="form-control" id="companyName" placeholder="Company Name">-->
                 </div>
 
                 <div class="form-group">
                     <label for="storeName">Store Name</label>
-                    {{ form_widget(myForm.store_name) }}
+                    {{ form_widget(myForm.name) }}
                 </div>
 
                 <div class="form-group">
@@ -38,48 +38,52 @@
 
                     {{ form_widget(myForm.country) }}
 
-                    <input type="text" style="width:49%; display:inline-block;" class="form-control" id="tel" placeholder="Telephone"><input type="text" style="width:49%; margin: 0 0 2% 2%; display:inline-block;" class="form-control" id="email" placeholder="E-mail" value="{{ email }}">
-                    <input type="text" style="width:49%; display:inline-block;" class="form-control" id="web" placeholder="Homepage"><input type="text" style="width:49%; margin: 0 0 2% 2%; display:inline-block;" class="form-control" id="fax" placeholder="Fax">
+                    {{ form_widget(myForm.tel) }}{{ form_widget(myForm.email) }}
+                    {{ form_widget(myForm.fax) }}{{ form_widget(myForm.web) }}
+
+
                 </div>
 
                 <div class="form-group">
                     <label>Opening Hours</label>
                     <br>
+
                     <div for="openingHours" style="width:19%; display:inline-block;">Monday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
-                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day1_am" value="08:00">
+                        {{ form_widget(myForm.opening_hours.mo_am) }}
                         to
-                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day1_pm" value="20:00">
+                        {{ form_widget(myForm.opening_hours.mo_pm) }}
                     </div>
                     <div for="openingHours" style="width:19%; display:inline-block;">Tuesday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
-                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day2_am" value="08:00">
+                        {{ form_widget(myForm.opening_hours.tu_am) }}
                         to
-                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day2_pm" value="20:00">
+                        {{ form_widget(myForm.opening_hours.tu_pm) }}
                     </div>
                     <div for="openingHours" style="width:19%; display:inline-block;">Wednesday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
-                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day3_am" value="08:00">
+                        {{ form_widget(myForm.opening_hours.wed_am) }}
                         to
-                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day3_pm" value="20:00">
+                        {{ form_widget(myForm.opening_hours.wed_pm) }}
                     </div>
                     <div for="openingHours" style="width:19%; display:inline-block;">Thursday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
-                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day4_am" value="08:00">
+                        {{ form_widget(myForm.opening_hours.thu_am) }}
                         to
-                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day4_pm" value="20:00">
+                        {{ form_widget(myForm.opening_hours.thu_pm) }}
                     </div>
                     <div for="openingHours" style="width:19%; display:inline-block;">Friday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
-                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day5_am" value="08:00">
+                        {{ form_widget(myForm.opening_hours.fr_am) }}
                         to
-                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day5_pm" value="20:00">
+                        {{ form_widget(myForm.opening_hours.fr_pm) }}
                     </div>
                     <div for="openingHours" style="width:19%; display:inline-block;">Saturday : </div><div style="width:79%; margin: 0 0 2% 2%; display:inline-block;">
-                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day6_am" value="08:00">
+                        {{ form_widget(myForm.opening_hours.sa_am) }}
                         to
-                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day6_pm" value="20:00">
+                        {{ form_widget(myForm.opening_hours.sa_pm) }}
                     </div>
                     <div for="openingHours" style="width:19%; display:inline-block;">Sunday : </div><div style="width:79%; margin: 0 0 0 2%; display:inline-block;">
-                        <input class="form-control" style="width:48%; display:inline-block;" type="time" id="day7_am" value="08:00">
+                        {{ form_widget(myForm.opening_hours.su_am) }}
                         to
-                        <input class="form-control" style="width:47%; display:inline-block;" type="time" name="day7_pm" value="20:00">
+                        {{ form_widget(myForm.opening_hours.su_pm) }}
                     </div>
+
                 </div>
 
                 <button type="submit" class="btn btn-primary pull-right">Save</button>
