@@ -30,13 +30,16 @@ class BusinessInfoController extends Controller
 
         $shop->setUser($userId);
 
+        $payment =  ['VISA'=>'VISA', 'MasterCard'=>'MasterCard', 'Maestro'=>'Maestro', 'Cirrus'=>'Cirrus', 'PayPal'=>'PayPal'];
+        $language =  ['English'=>'English', 'Chinese'=>'Chinese', 'Russian'=>'Russian', 'Japanese'=>'Japanese', 'Korean'=>'Korean', 'Thai'=>'Thai', 'Arabic'=>'Arabic'];
+
 
         $shop->setType();
         $shop->setCouponCode('coupon');
         $shop->setBrands('brands');
         $shop->setThumbnail('thumb');
         $shop->setPictures('picture');
-        $shop->setTaxRefund(1);
+
         //$shop->setSuffix();
 
 
@@ -69,6 +72,7 @@ class BusinessInfoController extends Controller
             ])
             ->add('manager_title', ChoiceType::class, [
                 'choices'=>['Mr.'=>'Mr.','Miss.'=>'Miss.','Dr.'=>'Dr.','Pr.'=>'Pr.'],
+                'placeholder' => 'Title',
             ])
             ->add('manager_firstname', TextType::class,[
                 'attr'=>['class'=>'form-control','style'=>'width:49%; margin-top: 2%; display:inline-block;','placeholder'=>'Firstname'],
@@ -90,6 +94,7 @@ class BusinessInfoController extends Controller
             ])
             ->add('country', ChoiceType::class,[
                 'choices'=> $country,
+                'placeholder' => 'Choose a Country',
                 'attr'=>['class'=>'form-control','style'=>'margin: 0 0 2% 0;'],
             ])
             ->add('tel', TextType::class,[
@@ -105,6 +110,21 @@ class BusinessInfoController extends Controller
                 'attr'=>['class'=>'form-control','style'=>'width:49%; margin: 0 0 2% 2%; display:inline-block;','placeholder'=>'Homepage'],
             ])
             ->add('opening_hours', OpeningType::class)
+            ->add('tax_refund', ChoiceType::class,[
+                'choices'=> ['Yes'=>true,'No'=>false],
+                'placeholder' => 'Yes or No',
+            ])
+            ->add('payment', ChoiceType::class, [
+                'choices' => $payment,
+                'multiple' => true,
+                'expanded' => true,
+                'attr'=>['class'=>'checkbox-inline col-md-2','style'=>'width: 30px;'],
+            ])
+            ->add('language', ChoiceType::class, [
+                'choices' => $language,
+                'multiple' => true,
+                'expanded' => true,
+            ])
             ->getForm();
 
 

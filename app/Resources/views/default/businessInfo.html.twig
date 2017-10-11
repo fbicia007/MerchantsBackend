@@ -94,16 +94,19 @@
                 <div class="form-group">
 
                     <label>Whether to offer tax refund</label>
-                    <select class="form-control" id="taxRefund">
-                        <option value="" selected hidden>Whether to offer tax refund</option>
-                        <option value="true">Yes</option>
-                        <option value="false">No</option>
-                    </select>
+                    {{ form_widget(myForm.tax_refund) }}
                 </div>
 
                 <div class="form-group">
                     <label for="companyName">Mode of Payment</label>
                     <div></div>
+                    {% for pay in myForm.payment %}
+                    <label class="check">
+                        {{ form_errors(pay) }}
+                        {{ form_widget(pay) }}
+                    </label><img style="width: 30px;" src="img/payment/{{ loop.index }}.png">
+                    {% endfor %}
+                    <!--
                     <label class="checkbox-inline col-md-2">
                         <input type="checkbox" id="visa" value="visa"><img style="width: 30px;" src="img/payment/1.png">
                     </label>
@@ -126,11 +129,19 @@
                     <label class="checkbox-inline col-md-2">
                         <input type="checkbox" id="maestro" value="maestro"><img style="width: 30px;" src="img/payment/3.png">
                     </label>
+                    -->
                 </div>
 
                 <div class="form-group" style="margin-top: 15%;">
                     <label for="storeName">Service Language</label>
                     <div></div>
+                    {% for language in myForm.language %}
+                        <label class="checkbox-inline col-md-2">
+                            {{ form_errors(language) }}
+                            {{ form_widget(language) }}
+                        </label>
+                    {% endfor %}
+                    <!--
                     <label class="checkbox-inline col-md-2">
                         <input type="checkbox" id="english" value="english"> English
                     </label>
@@ -153,7 +164,9 @@
                     <label class="checkbox-inline col-md-2">
                         <input type="checkbox" id="arabic" value="arabic"> Arabic
                     </label>
+                    -->
                 </div>
+                <br>
 
                 <div class="form-group" style="margin-top: 15%;">
                     <label>File Upload (Applying to IOS & Android)</label>
