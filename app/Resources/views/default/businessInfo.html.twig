@@ -172,20 +172,22 @@
                     <label>File Upload (Applying to IOS & Android)</label>
                     <div style="margin-bottom: 2%;">Thumb of Store</div>
                     <div style="border: 1px solid #ccc!important; height: 141px;">
-                        <input type="file" id="thumb">
+                        {{ form_widget(myForm.thumbnail) }}
                         <p class="help-block">Your profile picture(jpg/png) must be smaller than 1 MB in file size.</p>
+
                     </div>
 
                     <div style="margin: 2% 0 2% 0;">Five Pictures of Store Interior</div>
                     <div style="border: 1px solid #ccc!important; height: 141px;">
-                        <input type="file" id="pictures" multiple="multiple">
+                        {{ form_widget(myForm.pictures) }}
                         <p class="help-block">Your profile picture(jpg/png) must be smaller than 1 MB in file size.</p>
                     </div>
                 </div>
 
                 <a href="/">
-                    <button type="button" class="btn btn-danger" style="margin-top: 36.5%;">Cancel</button>
+                    <button type="button" class="btn btn-danger" style="margin-top: 21.5%;">Cancel</button>
                 </a>
+
 
             </div>
 

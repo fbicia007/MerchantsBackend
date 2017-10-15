@@ -5,12 +5,17 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Shop;
 use AppBundle\Entity\Country;
 use AppBundle\Entity\Type;
+use AppBundle\Entity\Suffix;
+
 use AppBundle\Form\BrandType;
 use AppBundle\Form\OpeningType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -26,6 +31,8 @@ class BusinessInfoController extends Controller
         $userEmail = $user->getemail();
         $userId = $user->getid();
 
+
+
         $shop = new Shop();
 
         $shop->setUser($userId);
@@ -34,13 +41,11 @@ class BusinessInfoController extends Controller
         $language =  ['English'=>'English', 'Chinese'=>'Chinese', 'Russian'=>'Russian', 'Japanese'=>'Japanese', 'Korean'=>'Korean', 'Thai'=>'Thai', 'Arabic'=>'Arabic'];
 
 
-        $shop->setType();
+        //$shop->setType('1');
+        //$shop->setSuffix('1');
         $shop->setCouponCode('coupon');
         $shop->setBrands('brands');
-        $shop->setThumbnail('thumb');
-        $shop->setPictures('picture');
 
-        //$shop->setSuffix();
 
 
         $country_obj = $this->getDoctrine()
@@ -57,11 +62,6 @@ class BusinessInfoController extends Controller
         }
 
         $country = array_combine($country_key,$country_value);
-
-
-        dump($country);
-
-
 
         $form = $this->createFormBuilder($shop)
             ->add('company', TextType::class,[
@@ -125,21 +125,61 @@ class BusinessInfoController extends Controller
                 'multiple' => true,
                 'expanded' => true,
             ])
+            ->add('thumbnail', FileType::class, [
+                'label' => 'Your profile picture(jpg/png) must be smaller than 1 MB in file size.',
+                'data_class' => null,
+            ])
+            ->add('pictures', FileType::class, [
+                'label' => 'Your profile picture(jpg/png) must be smaller than 1 MB in file size.',
+                'data_class' => null,
+                'multiple' => true,
+            ])
             ->getForm();
 
-
-        //$form = $this->createForm(BrandType::class);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
 
-            dump($form->getData());
 
+            $fileThumbnail = $shop->getThumbnail();
+
+            $pictures = $shop->getPictures();
+
+            // Generate a unique name for the file before saving it
+
+            $fileThumbnailName = $this->get('app.thumbs_uploader')->upload($fileThumbnail);
+
+            //multi upload
+            $files = $shop->getPictures();
+            $images = array();
+
+            if($files != null) {
+                $key = 0;
+
+                foreach ($files as $file)
+                {
+                    $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+                    $file->move(
+                        $this->getParameter('pictures_directory'),
+                        $fileName
+                    );
+                    $images[$key++] = $fileName;
+                }
+                $shop->setPictures($images);
+            }
+
+            //$picturesName = $this->get('app.pictures_uploader')->upload($pictures);
+
+
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $shop->setThumbnail($fileThumbnailName);
+            //$shop->setPictures($picturesName);
 
             $em = $this->getDoctrine()->getManager();
 
-            //$shop = $form->getData();
+            //return $this->redirect($this->generateUrl('businessInfo'));
 
             $em->persist($shop);
             $em->flush();

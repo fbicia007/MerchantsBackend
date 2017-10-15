@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Shop
@@ -144,6 +146,14 @@ class Shop
      * @var string
      *
      * @ORM\Column(name="thumbnail", type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Please, upload the shop Thumbnail as a Image file.")
+     * @Assert\File(mimeTypes={ "image/png",
+     *          "image/jpeg",
+     *          "image/jpg",
+     *          "image/gif",
+     *          "application/pdf",
+     *          "application/x-pdf" })
      */
     private $thumbnail;
 
@@ -151,6 +161,17 @@ class Shop
      * @var array
      *
      * @ORM\Column(name="pictures", type="array")
+     *
+     * @Assert\All({
+     *     @Assert\NotBlank,
+     *     @Assert\File(mimeTypes={ "image/png",
+     *          "image/jpeg",
+     *          "image/jpg",
+     *          "image/gif",
+     *          "application/pdf",
+     *          "application/x-pdf" })
+     * })
+     *
      */
     private $pictures;
 

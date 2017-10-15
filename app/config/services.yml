@@ -29,6 +29,15 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    app.thumbs_uploader:
+        class: AppBundle\Service\FileUploader
+        arguments: ['%thumbs_directory%']
+        public: true
+
+    app.pictures_uploader:
+        class: AppBundle\Service\FileUploader
+        arguments: ['%pictures_directory%']
+        public: true
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:
