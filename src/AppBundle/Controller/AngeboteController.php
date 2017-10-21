@@ -44,8 +44,6 @@ class AngeboteController extends Controller
 
             $em = $this->getDoctrine()->getManager();
 
-            $test = $form->getData();
-            dump($test);
             $em->persist($shop);
 
 
