@@ -1,13 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block content %}
     {{ parent() }}
-    <h1>Angebote Infomation</h1>
+    <div class="container">
+        <h2>Angebote Infomation</h2>
+
+        {{ form_start(myForm) }}
+        {{ form_widget(myForm) }}
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="/">
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
+        {{ form_end(myForm) }}
 
 
 
+
+    </div><!-- /.container -->
 {% endblock %}
 
 {% block stylesheets %}
-
 {% endblock %}

@@ -33,18 +33,15 @@ class BusinessInfoController extends Controller
 
 
 
-        $shop = new Shop();
+        //$shop = new Shop();
 
-        $shop->setUser($userId);
+
+        $shop = $this->getDoctrine()
+            ->getRepository(Shop::class)
+            ->findOneBy(['user'=>$userId]);
 
         $payment =  ['VISA'=>'VISA', 'MasterCard'=>'MasterCard', 'Maestro'=>'Maestro', 'Cirrus'=>'Cirrus', 'PayPal'=>'PayPal'];
         $language =  ['English'=>'English', 'Chinese'=>'Chinese', 'Russian'=>'Russian', 'Japanese'=>'Japanese', 'Korean'=>'Korean', 'Thai'=>'Thai', 'Arabic'=>'Arabic'];
-
-
-        //$shop->setType('1');
-        //$shop->setSuffix('1');
-        $shop->setCouponCode('coupon');
-        $shop->setBrands('brands');
 
 
 
@@ -179,10 +176,10 @@ class BusinessInfoController extends Controller
 
             $em = $this->getDoctrine()->getManager();
 
-            //return $this->redirect($this->generateUrl('businessInfo'));
-
             $em->persist($shop);
             $em->flush();
+
+            return $this->redirect($this->generateUrl('distribution'));
 
         }
 

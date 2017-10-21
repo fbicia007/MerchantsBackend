@@ -3,8 +3,8 @@ $(function(){
     $("#footer").load("footer.html");
 });
 
-$("#type").change(function(){
-    var type = $( "#type option:selected" ).index();
+$("#form_type").change(function(){
+    var type = $( "#form_type option:selected" ).index();
     var suffix = ["Cosmetics",
         "Fragrances mostly",
         "Health Care & pharmacy",
@@ -32,86 +32,86 @@ $("#type").change(function(){
         "Upmarket department store",
         "Bags & Luggage"];
     switch(type) {
+        case 0:
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[0]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[1]+"</option>");
+            $("#form_suffix").append("<option value='3'>"+suffix[2]+"</option>");
+            $("#form_suffix").append("<option value='4'>"+suffix[3]+"</option>");
+            break;
         case 1:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[0]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[1]+"</option>");
-            $("#suffix").append("<option value='3'>"+suffix[2]+"</option>");
-            $("#suffix").append("<option value='4'>"+suffix[3]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[4]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[5]+"</option>");
             break;
         case 2:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[4]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[5]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[3]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[6]+"</option>");
             break;
         case 3:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[3]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[6]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[3]+"</option>");
+            $("#form_suffix").append("<option value='1'>"+suffix[7]+"</option>");
+            $("#form_suffix").append("<option value='1'>"+suffix[8]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[9]+"</option>");
             break;
         case 4:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[3]+"</option>");
-            $("#suffix").append("<option value='1'>"+suffix[7]+"</option>");
-            $("#suffix").append("<option value='1'>"+suffix[8]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[9]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[3]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[10]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[11]+"</option>");
             break;
         case 5:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[3]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[10]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[11]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[3]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[12]+"</option>");
             break;
         case 6:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[3]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[12]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[13]+"</option>");
             break;
         case 7:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[13]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[3]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[15]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[16]+"</option>");
             break;
         case 8:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[3]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[15]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[16]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[3]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[14]+"</option>");
             break;
         case 9:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[3]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[14]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[3]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[17]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[18]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[19]+"</option>");
             break;
         case 10:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[3]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[17]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[18]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[19]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[20]+"</option>");
             break;
         case 11:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[20]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[3]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[21]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[22]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[23]+"</option>");
             break;
         case 12:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[3]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[21]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[22]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[23]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[3]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[24]+"</option>");
             break;
         case 13:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[3]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[24]+"</option>");
-            break;
-        case 14:
-            $("#suffix").empty();
-            $("#suffix").append("<option value='1'>"+suffix[3]+"</option>");
-            $("#suffix").append("<option value='2'>"+suffix[25]+"</option>");
+            $("#form_suffix").empty();
+            $("#form_suffix").append("<option value='1'>"+suffix[3]+"</option>");
+            $("#form_suffix").append("<option value='2'>"+suffix[25]+"</option>");
             break;
         default:
-            $("#suffix").empty();
+            $("#form_suffix").empty();
     }
 
 });

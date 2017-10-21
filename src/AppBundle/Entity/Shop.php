@@ -28,124 +28,124 @@ class Shop
      *
      * @ORM\Column(name="company", type="string", length=255)
      */
-    private $company;
+    private $company = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
-    private $name;
+    private $name = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="manager_title", type="string", length=20)
      */
-    private $managerTitle;
+    private $managerTitle = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="manager_firstname", type="string", length=255)
      */
-    private $managerFirstname;
+    private $managerFirstname = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="manager_lastname", type="string", length=255)
      */
-    private $managerLastname;
+    private $managerLastname = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="street", type="string", length=255)
      */
-    private $street;
+    private $street = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="street_number", type="string", length=255)
      */
-    private $streetNumber;
+    private $streetNumber = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="zip", type="string", length=255)
      */
-    private $zip;
+    private $zip = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255)
      */
-    private $city;
+    private $city = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="country", type="string", length=255)
      */
-    private $country;
+    private $country = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="tel", type="string", length=255)
      */
-    private $tel;
+    private $tel = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
-    private $email;
+    private $email = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="web", type="string", length=255)
      */
-    private $web;
+    private $web = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="fax", type="string", length=255)
      */
-    private $fax;
+    private $fax = '';
 
     /**
      * @var bool
      *
      * @ORM\Column(name="tax_refund", type="boolean")
      */
-    private $taxRefund;
+    private $taxRefund = '';
 
     /**
      * @var array
      *
-     * @ORM\Column(name="payment", type="array")
+     * @ORM\Column(name="payment", type="array", nullable=true)
      */
     private $payment;
 
     /**
      * @var array
      *
-     * @ORM\Column(name="language", type="array")
+     * @ORM\Column(name="language", type="array", nullable=true)
      */
     private $language;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="thumbnail", type="string", length=255)
+     * @ORM\Column(name="thumbnail", type="string", length=255 ,nullable=true)
      *
      * @Assert\NotBlank(message="Please, upload the shop Thumbnail as a Image file.")
      * @Assert\File(mimeTypes={ "image/png",
@@ -160,7 +160,7 @@ class Shop
     /**
      * @var array
      *
-     * @ORM\Column(name="pictures", type="array")
+     * @ORM\Column(name="pictures", type="array", nullable=true)
      *
      * @Assert\All({
      *     @Assert\NotBlank,
@@ -197,7 +197,7 @@ class Shop
     /**
      * @var array
      *
-     * @ORM\Column(name="opening_hours", type="json_array")
+     * @ORM\Column(name="opening_hours", type="json_array", nullable=true)
      */
     private $openingHours;
 
@@ -206,14 +206,14 @@ class Shop
      *
      * @ORM\Column(name="coupon_code", type="string", length=255)
      */
-    private $couponCode;
+    private $couponCode = '';
 
     /**
      * @var array
      *
-     * @ORM\Column(name="brands", type="json_array")
+     * @ORM\Column(name="brands", type="json_array", nullable=true)
      */
-    private $brands;
+    private $brands = '';
 
 
     /**

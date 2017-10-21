@@ -1,79 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block content %}
     {{ parent() }}
     <div class="container">
         <h2>Distribution Information</h2>
 
-        {{ form_start(myForm1) }}
-        {{ form_widget(myForm1) }}
-        <button type="submit" class="btn btn-primary pull-right">Save</button>
-        {{ form_end(myForm1) }}
-
-        <form>
-            <div class="form-group">
-                <label for="type">Store Type</label>
-                <select class="form-control" id="type">
-                    <option value="" selected hidden>Please a Type for your Store</option>
-                    <option value="1">Beauty & Health & pharmacy</option>
-                    <option value="2">Drugstore & Baby care</option>
-                    <option value="3">Shoes</option>
-                    <option value="4">Jewelry & Timepiece</option>
-                    <option value="5">Electronics & Computers</option>
-                    <option value="6">Kitchen & Home appliances</option>
-                    <option value="7">Department store</option>
-                    <option value="8">Sports & Outdoors</option>
-                    <option value="9">Glasses</option>
-                    <option value="10">Child care</option>
-                    <option value="11">Supermarket</option>
-                    <option value="12">Fashion</option>
-                    <option value="13">luxury brand</option>
-                    <option value="14">Bags & Luggage</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="suffix">Store Suffix</label>
-
-                <select class="form-control" id="suffix">
-                    <option value="" selected hidden>Please a Suffix for your Store</option>
-                    <!--<option value="1">Cosmetics</option>
-                    <option value="2">Fragrances mostly</option>
-                    <option value="3">Health Care & pharmacy</option>
-                    <option value="4">authorize boutique</option>
-                    <option value="5">Drugstore</option>
-                    <option value="6">Baby care mostly</option>
-                    <option value="7">Shoes</option>
-                    <option value="8">Accessories</option>
-                    <option value="9">Jewelry mostly</option>
-                    <option value="10">Jewelry & timepiece</option>
-                    <option value="11">Electronics store</option>
-                    <option value="12">Electronics shop</option>
-                    <option value="13">Home appliances</option>
-                    <option value="14">department store</option>
-                    <option value="15">Glasses</option>
-                    <option value="16">Sport & Outdoors</option>
-                    <option value="17">Outdoors mostly</option>
-                    <option value="18">Toys & Games</option>
-                    <option value="19">Children's fashion</option>
-                    <option value="20">Child care</option>
-                    <option value="21">Supermarket</option>
-                    <option value="22">Men's fashion</option>
-                    <option value="23">Women's fashion</option>
-                    <option value="24">Clothes</option>
-                    <option value="25">Upmarket department store</option>
-                    <option value="26">Bags & Luggage</option>-->
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="brands">Brands</label>
-                <textarea class="form-control" id="brands" rows="5"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <a href="/">
-                <button type="button" class="btn btn-danger">Cancel</button>
-            </a>
-        </form>
-
+        {{ form_start(myForm) }}
+        {{ form_widget(myForm) }}
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="/">
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
+        {{ form_end(myForm) }}
 
 
     </div><!-- /.container -->

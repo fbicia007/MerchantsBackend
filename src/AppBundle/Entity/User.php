@@ -24,6 +24,29 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstlogin", type="boolean")
+     */
+    private $firstlogin = 0;
+
+    /**
+     * @return string
+     */
+    public function getFirstlogin()
+    {
+        return $this->firstlogin;
+    }
+
+    /**
+     * @param string $firstlogin
+     */
+    public function setFirstlogin($firstlogin)
+    {
+        $this->firstlogin = $firstlogin;
+    }
+
     public function __construct()
     {
         parent::__construct();

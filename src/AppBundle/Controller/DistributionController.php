@@ -10,9 +10,12 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Shop;
 use AppBundle\Entity\Suffix;
 use AppBundle\Entity\Type;
+use AppBundle\Entity\Brand;
+use AppBundle\Form\BrandType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 
 class DistributionController extends Controller
@@ -22,11 +25,12 @@ class DistributionController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+        $user = $this->getUser();
+        $userId = $user->getid();
 
         $shop = $this->getDoctrine()
             ->getRepository(Shop::class)
-            ->findOneBy(['user'=>1]);
+            ->findOneBy(['user'=>$userId]);
 
 
 
@@ -34,10 +38,17 @@ class DistributionController extends Controller
             ->add('type', EntityType::class,[
                 'class'   => Type::class,
                 'choice_label' => 'name',
+                'label' =>'Store Type',
+                'attr'=>['placeholder'=>'Please a Type for your Store'],
             ])
             ->add('suffix', EntityType::class, [
                 'class'   => Suffix::class,
                 'choice_label' => 'name',
+                'label' =>'Store Suffix',
+                'attr'=>['placeholder'=>'Please a Type for your Store'],
+            ])
+            ->add('brands', TextareaType::class,[
+                'attr'=>['placeholder'=>'Please input Brands for your Store'],
             ])
             ->getForm();
 
@@ -54,12 +65,13 @@ class DistributionController extends Controller
 
 
             $em->flush();
+            return $this->redirect($this->generateUrl('angeboteInfo'));
 
         }
 
         return $this->render('default/distribution.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-            'myForm1' => $form->createView()
+            'myForm' => $form->createView()
         ]);
     }
 }
