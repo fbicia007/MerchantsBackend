@@ -115,3 +115,39 @@ $("#form_type").change(function(){
     }
 
 });
+
+//change types
+window.onload = function()
+{
+    document.getElementById("form_opening_hours_mo_am").type = "time";
+    document.getElementById("form_opening_hours_mo_pm").type = "time";
+    document.getElementById("form_opening_hours_tu_am").type = "time";
+    document.getElementById("form_opening_hours_tu_pm").type = "time";
+    document.getElementById("form_opening_hours_wed_am").type = "time";
+    document.getElementById("form_opening_hours_wed_pm").type = "time";
+    document.getElementById("form_opening_hours_thu_am").type = "time";
+    document.getElementById("form_opening_hours_thu_pm").type = "time";
+    document.getElementById("form_opening_hours_fr_am").type = "time";
+    document.getElementById("form_opening_hours_fr_pm").type = "time";
+    document.getElementById("form_opening_hours_sa_am").type = "time";
+    document.getElementById("form_opening_hours_sa_pm").type = "time";
+    document.getElementById("form_opening_hours_su_am").type = "time";
+    document.getElementById("form_opening_hours_su_pm").type = "time";
+    document.getElementById("form_tel").type = "number";
+    document.getElementById("form_fax").type = "number";
+};
+
+//file count check
+
+$("#form_pictures").on("change", function(){
+    var numFiles = $(this).get(0).files.length
+    if(numFiles >5)
+    {
+        alert("you can only upload 5 pictures, but you choice "+numFiles);
+        document.getElementById("form_pictures").value = "";
+    }
+    else {
+        return true;
+    }
+
+});

@@ -13,6 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -97,7 +98,7 @@ class BusinessInfoController extends Controller
             ->add('tel', TextType::class,[
                 'attr'=>['class'=>'form-control','style'=>'width:49%; display:inline-block;','placeholder'=>'Telephone'],
             ])
-            ->add('email', TextType::class,[
+            ->add('email', EmailType::class,[
                 'attr'=>['class'=>'form-control','style'=>'width:49%; margin: 0 0 2% 2%; display:inline-block;','placeholder'=>'E-Mail'],
             ])
             ->add('fax', TextType::class,[
@@ -130,6 +131,7 @@ class BusinessInfoController extends Controller
                 'label' => 'Your profile picture(jpg/png) must be smaller than 1 MB in file size.',
                 'data_class' => null,
                 'multiple' => true,
+
             ])
             ->getForm();
 

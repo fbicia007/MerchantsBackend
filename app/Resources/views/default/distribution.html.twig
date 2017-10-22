@@ -6,6 +6,24 @@
         <h2>Distribution Information</h2>
 
         {{ form_start(myForm) }}
+
+        <div class="form-group">
+            <label for="storeType">Store Type</label>
+            {{ form_widget(myForm.type) }}
+        </div>
+
+        <div class="form-group">
+            <label for="storeSuffix">Store Suffix</label>
+            {{ form_widget(myForm.suffix) }}
+        </div>
+
+        <div class="form-group">
+            <label for="brands">Brands</label>
+            {{ form_widget(myForm.brands) }}
+        </div>
+
+
+
         {{ form_widget(myForm) }}
         <button type="submit" class="btn btn-primary">Save</button>
         <a href="/">

@@ -10,12 +10,13 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Shop;
 use AppBundle\Entity\Suffix;
 use AppBundle\Entity\Type;
-use AppBundle\Entity\Brand;
-use AppBundle\Form\BrandType;
+
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 class DistributionController extends Controller
@@ -47,8 +48,8 @@ class DistributionController extends Controller
                 'label' =>'Store Suffix',
                 'attr'=>['placeholder'=>'Please a Type for your Store'],
             ])
-            ->add('brands', TextareaType::class,[
-                'attr'=>['placeholder'=>'Please input Brands for your Store'],
+            ->add('brands', TextType::class,[
+                'attr'=>['placeholder'=>'Please input Brands for your Store','data-role'=>'tagsinput'],
             ])
             ->getForm();
 
